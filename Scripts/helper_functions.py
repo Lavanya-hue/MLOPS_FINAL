@@ -3,12 +3,12 @@ import os
 # from dotenv import load_dotenv
 
 #Changes made by me:
-from dotenv import load_dotenv
-from pathlib import Path
+# from dotenv import load_dotenv
+# from pathlib import Path
 
-# Load .env from the project root
-env_path = Path(__file__).resolve().parent.parent / '.env'
-load_dotenv(dotenv_path=env_path)
+# # Load .env from the project root
+# env_path = Path(__file__).resolve().parent.parent / '.env'
+# load_dotenv(dotenv_path=env_path)
 
 #till this line
 
