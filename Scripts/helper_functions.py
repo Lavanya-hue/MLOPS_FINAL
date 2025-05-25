@@ -2,13 +2,33 @@ import logging
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
+#changes made by me:
 
-# Define base paths dynamically
+from pathlib import Path
+
+# Load .env manually here
+env_path = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-LOGS_DIR = os.path.join(BASE_DIR, os.getenv('LOGS_DIR'))
+# Get logs directory from env, raise error if not set
+LOGS_DIR = os.getenv('LOGS_DIR')
+if LOGS_DIR is None:
+    raise ValueError("LOGS_DIR environment variable not set. Please check your .env file.")
+
+# Join with BASE_DIR to get absolute path
+LOGS_DIR = os.path.join(BASE_DIR, LOGS_DIR)
+
+#till here
+
+# Load environment variables
+# load_dotenv()
+
+# Define base paths dynamically
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# LOGS_DIR = os.path.join(BASE_DIR, os.getenv('LOGS_DIR'))
 
 # Ensure Logs directory exists
 os.makedirs(LOGS_DIR, exist_ok=True)
