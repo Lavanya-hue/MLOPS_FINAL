@@ -1,19 +1,9 @@
 import logging
 import os
-# from dotenv import load_dotenv
-
-#Changes made by me:
-# from dotenv import load_dotenv
-# from pathlib import Path
-
-# # Load .env from the project root
-# env_path = Path(__file__).resolve().parent.parent / '.env'
-# load_dotenv(dotenv_path=env_path)
-
-#till this line
+from dotenv import load_dotenv
 
 # Load environment variables
-# load_dotenv()
+load_dotenv()
 
 # Define base paths dynamically
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
